@@ -1,0 +1,13 @@
+def add_bitwise(a: int, b: int) -> int:
+    while b != 0:
+        carry = a & b
+        a = a ^ b
+        b = carry << 1
+    return a
+
+try:
+    num1 = int(input("Enter first integer: "))
+    num2 = int(input("Enter second integer: "))
+    print(f"Sum of {num1} + {num2} is: {add_bitwise(num1, num2)}")
+except ValueError:
+    print("Invalid input. Please enter integers only.")
