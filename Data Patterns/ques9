@@ -1,0 +1,35 @@
+def merge_halves_in_place(arr: list[int]) -> list[int]:
+    mid = 0
+    for i in range(len(arr) - 1):
+        if arr[i] > arr[i + 1]:
+            mid = i + 1
+            break
+    else:
+        return arr
+        
+    i, j = 0, mid
+    while i < j and j < len(arr):
+        if arr[i] <= arr[j]:
+            i += 1
+        else:
+            target_val = arr[j]
+            k = j
+            while k > i:
+                arr[k] = arr[k - 1]
+                k -= 1
+            arr[i] = target_val
+            i += 1
+            j += 1
+    return arr
+
+try:
+    raw_input = input("Enter space-separated integers (two sorted halves): ")
+    input_array = [int(x) for x in raw_input.split()]
+    
+    if not input_array:
+        print("The array is empty.")
+    else:
+        print(f"Original: {input_array}")
+        print(f"Sorted:   {merge_halves_in_place(input_array)}")
+except ValueError:
+    print("Invalid input. Please enter numbers separated by spaces only.")
