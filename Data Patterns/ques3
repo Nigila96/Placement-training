@@ -1,0 +1,44 @@
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.left = None
+        self.right = None
+
+
+def mergeTrees(t1, t2):
+
+    if not t1:
+        return t2
+
+    if not t2:
+        return t1
+
+    t1.data += t2.data
+
+    t1.left = mergeTrees(t1.left, t2.left)
+    t1.right = mergeTrees(t1.right, t2.right)
+
+    return t1
+
+
+def inorder(root):
+    if root:
+        inorder(root.left)
+        print(root.data, end=" ")
+        inorder(root.right)
+
+
+
+t1 = Node(1)
+t1.left = Node(3)
+t1.right = Node(2)
+
+
+t2 = Node(2)
+t2.left = Node(1)
+t2.right = Node(3)
+
+merged = mergeTrees(t1, t2)
+
+print("Merged Tree (Inorder):")
+inorder(merged)
