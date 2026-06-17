@@ -1,0 +1,22 @@
+def power(x: float, n: int) -> tuple[float, int]:
+    multiplications, result, base = 0, 1.0, x
+    while n > 0:
+        if n % 2 == 1:
+            result *= base
+            multiplications += 1
+        n //= 2
+        if n > 0:
+            base *= base
+            multiplications += 1
+    return result, multiplications
+
+try:
+    base_val = float(input("Enter the base number (x): "))
+    exponent_val = int(input("Enter an unsigned exponent (n >= 0): "))
+    if exponent_val < 0:
+        print("Error: Exponent must be unsigned (non-negative).")
+    else:
+        res, count = power(base_val, exponent_val)
+        print(f"Result: {res}\nMultiplications used: {count}")
+except ValueError:
+    print("Invalid input. Base must be a float and exponent must be an integer.")
