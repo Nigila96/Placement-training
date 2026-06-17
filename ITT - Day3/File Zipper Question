@@ -1,0 +1,9 @@
+Building a File Zipper 
+Difficulty level: Medium
+This project focuses on building a file compression tool using a Greedy Huffman encoder or Run-Length Encoding. This File Zipper tool compresses a large file or directory into a single compressed file that saves your memory storage. These compressed files are usually of smaller sizes and are easy to transfer from one machine to another.
+Learning outcomes:
+•	Knowledge of algorithms like Huffman coding, RLE (Run-Length Encoding), or LZW (Lempel-Ziv-Welch), required for compressing and decompressing files
+•	Understanding binary trees and the Tries data structures particularly used in Huffman coding to efficiently encode and decode your data
+•	Gain experience with handling bits and bytes for file compression 
+•	Knowledge of designing user interfaces for users to interact with the system 
+
